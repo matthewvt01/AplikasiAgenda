@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="6dp"
+    android:orientation="vertical"
+    tools:context=".UbahActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ubah Agenda"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/et_tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_jam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jam"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_kegiatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kegiatan"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/btn_Tambah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UBAH"/>
+
+
+</LinearLayout>
+
