@@ -18,7 +18,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String FIELD_JAM = "jam";
     private static final String FIELD_KEGIATAN = "kegiatan";
 
-
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.ctx = context;
@@ -54,14 +53,36 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         long eksekusi = db.insert(TABLE_NAME, null, cv);
         return eksekusi;
     }
+
     public Cursor bacaDataAgenda(){
         SQLiteDatabase db = this.getReadableDatabase();
-        String querry = "SELECT * FROM" + TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME;
 
         Cursor varCursor = null;
-        if (db != null){
-            varCursor = db.rawQuery(querry, null);
+        if(db != null){
+            varCursor = db.rawQuery(query, null);
         }
+
         return varCursor;
     }
+
+    public long hapusAgenda(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long eksekusi = db.delete(TABLE_NAME, "id = ?", new String[]{id});
+        return eksekusi;
+    }
+
+    public long ubahAgenda(String id, String tanggal, String jam, String kegiatan){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(FIELD_TANGGAL, tanggal);
+        cv.put(FIELD_JAM, tanggal);
+        cv.put(FIELD_KEGIATAN, kegiatan);
+
+        long eksekusi = db.update(TABLE_NAME, cv, "id = ?", new String[]{id});
+        return eksekusi;
+    }
+
+
 }
